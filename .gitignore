@@ -3,6 +3,7 @@ __pycache__/
 venv/
 node_modules/
 .env
+.ipynb_checkpoints/
 
 project/
 processed_symptom_disease.csv
