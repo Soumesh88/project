@@ -47,6 +47,7 @@ os.environ["LANGCHAIN_TRACING_V2"] = "true"
 os.environ["LANGCHAIN_PROJECT"] = "langchain-academy"
 _set_env("OPENAI_API_KEY")
 _set_env("LANGCHAIN_API_KEY")
+_set_env("MONGO_URI")
 
 model = SentenceTransformer("all-MiniLM-L6-v2")  # Fast and accurate
 
@@ -285,8 +286,7 @@ app.config['JWT_SECRET_KEY'] = "your_secret_key_here"
 jwt = JWTManager(app)
 bcrypt = Bcrypt(app)
 
-MONGO_URI = "mongodb+srv://soumesh:Medbot123@cluster0.azcyfdk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-client = MongoClient(MONGO_URI)
+client = MongoClient(os.environ["MONGO_URI"])
 db = client["chatbotDB"]
 users_collection = db["users"]
 records_collection = db["patient_records"]
