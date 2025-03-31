@@ -92,7 +92,7 @@ MedBot = builder.compile()
 
 pu = MedBot.invoke(
     {
-        "user_query": "Feeling really tired lately,I've been feel and I have a fever with chills. Also, my throat is sore."
+        "user_query": "Feeling really tired lately, and I have a fever with chills. Also, my throat is sore."
     }
 )
 
