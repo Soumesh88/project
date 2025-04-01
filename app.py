@@ -123,16 +123,28 @@ def supervisor(input : Input)-> Command[Literal["Analysis", "Help Desk"]]:
        })
     return Command(goto="Help Desk", update={
         "user_query":  input["user_query"],
-        "diseases": None
+        "diseases": None,
+        "disease_list": None
     })
 
 def help_desk(input : Input):
-    system_msg = """You are an expert medical examiner. You have been provided a generic user query. You have to return a short and brief response explaining to the user that their query can't be answered, and that they should inquire about medical diagnosis instead"""
+    summary = input.get("conversation_summary", [])
+    if len(summary) == 0:
+        conversation_summary = ""
+    else:
+        conversation_summary = f"Summary of previous conversation with user: {"/n".join(summary)}"
+    system_msg = """You are an expert medical examiner. You have been provided a generic user query.
+    Previous conversation summary: {conversation_summary}
+    If the user query is related to previous conversation, then return a brief response to the user's query keeping the summary in mind.
+    If the user query is completely generic, then return a brief and precise response saying that you can't help with the query, and they should ask about medical assistance instead.
+    """
     messages = [
         ("system", system_msg),
         ("user", input["user_query"])
     ]
-    response  = base_model.invoke(ChatPromptTemplate.from_messages(messages).invoke({}))
+    response  = base_model.invoke(ChatPromptTemplate.from_messages(messages).invoke({
+        "conversation_summary": conversation_summary
+    }))
     return {
         "final_answer": response.content
     }

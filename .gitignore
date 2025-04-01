@@ -9,3 +9,5 @@ project/
 processed_symptom_disease.csv
 processed_with_embeddings.csv
 Final_Augmented_dataset_Diseases_and_Symptoms.csv
+dataset.csv
+disease_symptoms.csv
