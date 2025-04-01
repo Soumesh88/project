@@ -51,7 +51,7 @@ _set_env("MONGO_URI")
 
 model = SentenceTransformer("all-MiniLM-L6-v2")  # Fast and accurate
 
-df = pd.read_csv("processed_symptom_disease.csv")
+df = pd.read_csv("merged_dataset.csv")
 
 index = faiss.read_index("symptom_faiss.index")
 

@@ -155,27 +155,34 @@ export default function Profile() {
 
         <h3 className="text-xl font-semibold mt-6">Add Medical Record</h3>
         <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            addRecord();
-          }}
-          className="mt-3 space-y-3"
-        >
-          <input name="date" type="date" value={form.date} onChange={handleChange} required className="w-full p-2 border rounded-md" />
-          <input name="symptoms" placeholder="Symptoms" value={form.symptoms} onChange={handleChange} required className="w-full p-2 border rounded-md" />
-          <input name="diagnosed_diseases" placeholder="Diagnosed Diseases" value={form.diagnosed_diseases} onChange={handleChange} className="w-full p-2 border rounded-md" />
-          <select name="severity" value={form.severity} onChange={handleChange} className="w-full p-2 border rounded-md">
-            <option value="">Severity</option>
-            <option value="Mild">Mild</option>
-            <option value="Moderate">Moderate</option>
-            <option value="Severe">Severe</option>
-          </select>
-          <input name="duration" placeholder="Duration" value={form.duration} onChange={handleChange} className="w-full p-2 border rounded-md" />
-          <textarea name="doctor_notes" placeholder="Doctor's Notes" value={form.doctor_notes} onChange={handleChange} className="w-full p-2 border rounded-md"></textarea>
-          <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">
-            Add Record
-          </button>
-        </form>
+  onSubmit={(e) => {
+    e.preventDefault();
+    addRecord();
+  }}
+  className="mt-3 space-y-3"
+>
+  <input name="date" type="date" value={form.date} onChange={handleChange} required className="w-full p-2 border rounded-md" />
+  <input name="symptoms" placeholder="Symptoms" value={form.symptoms} onChange={handleChange} required className="w-full p-2 border rounded-md" />
+  <input name="diagnosed_diseases" placeholder="Diagnosed Diseases" value={form.diagnosed_diseases} onChange={handleChange} className="w-full p-2 border rounded-md" />
+  <select name="severity" value={form.severity} onChange={handleChange} className="w-full p-2 border rounded-md">
+    <option value="">Severity</option>
+    <option value="Mild">Mild</option>
+    <option value="Moderate">Moderate</option>
+    <option value="Severe">Severe</option>
+  </select>
+  <input name="duration" placeholder="Duration" value={form.duration} onChange={handleChange} className="w-full p-2 border rounded-md" />
+  <input name="current_medications" placeholder="Current Medications" value={form.current_medications} onChange={handleChange} className="w-full p-2 border rounded-md" />
+  <input name="past_medications" placeholder="Past Medications" value={form.past_medications} onChange={handleChange} className="w-full p-2 border rounded-md" />
+  <input name="allergies" placeholder="Allergies" value={form.allergies} onChange={handleChange} className="w-full p-2 border rounded-md" />
+  <input name="past_surgeries" placeholder="Past Surgeries" value={form.past_surgeries} onChange={handleChange} className="w-full p-2 border rounded-md" />
+  <input name="family_history" placeholder="Family History" value={form.family_history} onChange={handleChange} className="w-full p-2 border rounded-md" />
+  <input name="lifestyle" placeholder="Lifestyle" value={form.lifestyle} onChange={handleChange} className="w-full p-2 border rounded-md" />
+  <textarea name="doctor_notes" placeholder="Doctor's Notes" value={form.doctor_notes} onChange={handleChange} className="w-full p-2 border rounded-md"></textarea>
+  <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">
+    Add Record
+  </button>
+</form>
+
 
         <button
           onClick={() => {
